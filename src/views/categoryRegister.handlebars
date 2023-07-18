@@ -1,0 +1,50 @@
+<div class="card mb-5">
+  <div class="card-body">
+    <div class="card-titulo d-flex flex-wrap mb-4 align-end justify-content-between">
+      <div class="item w-100">
+        <h4 class="mb-4">
+          <a class="text-dark text-decoration-none" href="/category/list">Categoria </a> / 
+          <a class="text-dark text-decoration-none" href="/category/register"><small>Cadastro</small></a>
+        </h4>
+      </div>
+      <div class="item w-100">
+        <form id="form-category" name="form-category" action="/category/register" method="POST">
+          
+          {{#if sucess_message}}
+            <div id="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+              {{sucess_message}}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+          {{/if}}
+ 
+          {{#if error_message}}
+            <div id="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+              {{error_message}}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+          {{/if}}
+          
+          <div class="mb-3">
+            <label for="labelcat" class="form-label">Categoria</label>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="Categoria" required>
+          </div>
+          <div class="mb-3">
+            <label for="labelst" class="form-label">Status</label>
+            <select name="status" id="status"  class="form-control" required>
+              <option value="Ativo">Ativo</option>
+              <option value="Inativo">Inativo</option>
+            </select>
+          </div>
+          <button type="submit" class="btn mb-3 btn-primary">Cadastrar</button>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</div>

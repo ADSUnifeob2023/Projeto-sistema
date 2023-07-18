@@ -1,0 +1,41 @@
+<div class="card mb-5">
+  <div class="card-body">
+    <div class="card-titulo d-flex mb-4 align-end justify-content-between">
+      <div class="item">
+        <h4>Categoria</h4>
+      </div>
+      <div class="item">
+        <a href="/category/register">
+          <button type="button" class="btn btn-primary">Cadastrar</button>
+        </a>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table id="tablecategory" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+          <tr>
+            <th class="th-sm">Categoria
+            </th>
+            <th class="th-sm">Status
+            </th>
+            <th class="th-sm">Opções
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+           {{#each categorylist}} 
+          <tr>
+            <td>{{name}}</td>
+            <td>{{status}}</td>
+            <td>
+              <a href="/category/update/{{id}}"><img src="/assets/image/icons/update.svg" alt="Update"></a>
+               <a href="/category/delete/{{id}}" onclick="return confirm('Deseja realmente excluir esta Categoria?');"><img src="/assets/image/icons/delete.svg" alt="Delete"></a>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>

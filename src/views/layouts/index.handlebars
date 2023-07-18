@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DM - Doces do Mário</title>
+
+  <link rel="stylesheet" href="/assets/js/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="/assets/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- Vertical navbar -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-end">
+        <div class="col-lg-2">
+          <div class="vertical-nav py-5 px-3 mb-4 bg-white" id="sidebar">
+            <ul class="nav flex-column bg-white mb-0">
+              <li class="nav-item">
+                <a href="#" class="nav-link d-flex align-items-center text-dark bg-light">
+                  <img class="mr-2" src="/assets/image/icons/home.svg" alt="Home">
+                  Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/category/list" class="nav-link d-flex align-items-center text-dark bg-light">
+                  <img class="mr-2" src="/assets/image/icons/category.svg" alt="Category">
+                  Categoria
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/product/list" class="nav-link d-flex align-items-center text-dark bg-light">
+                  <img class="mr-2" src="/assets/image/icons/product.svg" alt="Product">
+                  Produto
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/user/list" class="nav-link d-flex align-items-center text-dark bg-light">
+                  <img class="mr-2" src="/assets/image/icons/user.svg" alt="User">
+                  Usuário
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/sales/register" class="nav-link d-flex align-items-center text-dark bg-light">
+                  <img class="mr-2" src="/assets/image/icons/sales.svg" alt="User">
+                  Vendas
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-10">
+          <div class="page-content ps-5" id="content">
+            <button id="sidebarCollapse" type="button"
+              class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small
+                class="text-uppercase font-weight-bold">Menu</small></button>
+            <div class="container p-0">
+              {{{body}}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/js/jquery-3.5.1.js"></script>
+
+  <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+
+  <script src="/assets/js/Mask/jquery.inputmask.bundle.min.js"></script>
+
+  <script src="/assets/js/dataTables/jquery.dataTables.min.js"></script>
+  <script src="/assets/js/dataTables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Product !-->
+  <script src="/assets/js/Product.js"></script>
+
+  <!-- Main Javascript !-->
+  <script src="/assets/js/main.js"></script>
+
+  </script>
+
+</body>
+
+</html>

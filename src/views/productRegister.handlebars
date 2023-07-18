@@ -1,0 +1,75 @@
+<div class="card mb-5">
+  <div class="card-body">
+    <div class="card-titulo d-flex flex-wrap mb-4 align-end justify-content-between">
+      <div class="item w-100">
+        <h4 class="mb-4">
+          <a class="text-dark text-decoration-none" href="/product/list">Produto </a> / 
+          <a class="text-dark text-decoration-none" href="/product/register"><small>Cadastro</small></a>
+        </h4>
+      </div>
+      <div class="item w-100">
+        <form id="form-product" name="form-product" action="/product/register" method="POST">
+          
+          {{#if sucess_message}}
+            <div id="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+              {{sucess_message}}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+          {{/if}}
+ 
+          {{#if error_message}}
+            <div id="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+              {{error_message}}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+          {{/if}}
+
+          <div class="col-lg-12 d-flex flex-wrap p-0">
+            <div class="col-lg-12 col-md-12 mb-3">
+              <label for="labelprod" class="form-label">Produto</label>
+              <input type="text" class="form-control" id="name" name="name" aria-describedby="Usuário" required>
+            </div>
+            <div class="col-lg-6 col-md-12 mb-3">
+              <label for="labelcodprod" class="form-label">Código Produto</label>
+              <input type="text" class="form-control" id="codigoProd" name="codigoProd" value="#" aria-describedby="Código Produto" required>
+            </div> 
+            <div class="col-lg-6 col-md-12 mb-3">
+              <label for="labelcat" class="form-label">Categoria</label>
+                <select name="idCategory" id="idCategory" class="form-control" required>
+                
+                  {{#each categorylist}} 
+                    <option value="{{id}}">{{name}}</option> 
+                  {{/each}}
+                
+                </select>
+            </div>
+            <div class="col-lg-6 col-md-12 mb-3">
+              <label for="labelprc" class="form-label">Preço</label>
+              <input type="text" class="form-control" id="preco" name="preco" aria-describedby="Preço" required>
+            </div>
+            <div class="col-lg-6 col-md-12 mb-3">
+              <label for="labelst" class="form-label">Status</label>
+              <select name="status" id="status" class="form-control" required>
+                <option value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
+              </select>
+            </div>
+            <div class="col-lg-12 col-md-12 mb-3">
+              <label for="labeldesc" class="form-label">Descrição</label>
+              <textarea class="form-control" name="descricao" id="descricao" aria-describedby="Descrição" cols="30" rows="10" required></textarea>
+            </div>
+            <div class="col-lg-12">
+              <button type="submit" class="btn mb-3 btn-primary">Cadastrar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
