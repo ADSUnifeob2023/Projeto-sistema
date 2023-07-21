@@ -2,9 +2,15 @@ import { SalesService } from "../services/SalesService";
 
 export class SalesController {
   private sales: SalesService;
+  private formatter: any;
 
   constructor() {
     this.sales = new SalesService();
+
+    this.formatter = new Intl.NumberFormat("pt-BR", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
   }
 
   async ListComplete(request, response) {
@@ -17,19 +23,14 @@ export class SalesController {
       return response.status(404).json(listComplete.message);
     }
 
-    Object.keys(listComplete).map(function (objectKey, index) {
+    Object.keys(listComplete).map((objectKey, index) => {
       const { id, name, codigoProd, preco } = listComplete[objectKey];
-
-      const formatter = new Intl.NumberFormat("pt-BR", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      });
 
       data[index] = {
         id: id,
         name: name,
         codigoProduct: codigoProd,
-        preco: formatter.format(preco),
+        preco: this.formatter.format(preco),
       };
     });
 
@@ -46,16 +47,11 @@ export class SalesController {
       return response.status(404).json(listByOneProduct.message);
     }
 
-    const formatter = new Intl.NumberFormat("pt-BR", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
-
     data = {
       id: listByOneProduct.id,
       name: listByOneProduct.name,
       codigoProduct: listByOneProduct.codigoProd,
-      preco: formatter.format(listByOneProduct.preco),
+      preco: this.formatter.format(listByOneProduct.preco),
     };
 
     return response.end(JSON.stringify({ data: data }));

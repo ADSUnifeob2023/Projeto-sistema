@@ -39,22 +39,13 @@ $(document).ready(function () {
     }
   };
 
-  const ItemsSales = (items) => {
-    const options = items.getElementsByTagName("td");
-
-    return {
-      price: options[2].getElementsByTagName("input")[0].value,
-      amount: options[3].getElementsByTagName("input")[0].value,
-    };
-  };
-
-  const totalSales = async (amountDefault = 1) => {
+  const totalSales = async (qtd = 1) => {
     let subtotal = [];
     const items = document.querySelector("table#content tbody").children;
 
     [].forEach.call(items, function (item) {
-      const price = ItemsSales(item).price;
-      const amount = ItemsSales(item).amount ?? amountDefault;
+      const price = item.getElementsByTagName("input")[2].value;
+      const amount = item.getElementsByTagName("input")[3].value ?? qtd;
       const total = price * amount;
       subtotal.push(total);
     });
@@ -111,7 +102,7 @@ $(document).ready(function () {
         $("table#content").append(`<tr id="${id}">
           <td data-name="name" class="text-center"><input class="text-center border-0" type="text" id="name" name="name" value="${name}" disabled></td>
           <td data-name="codproduct" class="text-center"><input class="text-center border-0" type="text" id="codigoProduct" name="codigoProduct" value="${codigoProduct}" disabled></td>
-          <td data-name="price" class="text-center"><input class="text-center border-0" type="text" id="codigoProduct" name="codigoProduct" value="${preco}" disabled></td>
+          <td data-name="price" class="text-center"><input class="text-center border-0" type="text" id="price" name="price" value="${preco}" disabled></td>
           <td data-name="amount" class="text-center"><input type="number" min="0" id="amount" name="amount" value="1"></td>
           <td class="text-center"><a id="${id}"><img class="remove-item" src="/assets/image/icons/remove-product.svg"></a></td>
           </tr>`);
@@ -143,7 +134,7 @@ $(document).ready(function () {
     totalSales(amount);
   });
 
-  const cancelSales = document.querySelector("button[id=cancelsales]");
+  const cancelSales = document.querySelector("button#cancelsales");
   cancelSales.addEventListener("click", () => {
     const table = document.querySelector("table#content tbody");
 
